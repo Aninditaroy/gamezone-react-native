@@ -4,6 +4,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ReviewDetails from './screens/reviewDetails';
 
 
 const getFonts = () => Font.loadAsync({
@@ -36,8 +37,23 @@ export default function App() {
   if (fontsLoaded) {
     SplashScreen.hideAsync();
     return <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name=" " component={Home} />
+      <Stack.Navigator screenOptions={{
+        headerTintColor: '#444',
+        headerStyle: {
+          backgroundColor: '#eee',
+        },
+        height: 60,
+      }}>
+        <Stack.Screen name='Home' component={Home} options={{
+          title: 'GameZone',
+          // headerStyle: {
+          //   backgroundColor: '#eee',
+          // },
+        }} />
+        <Stack.Screen name='ReviewDetails' component={ReviewDetails}
+          options={{
+            title: 'Review Details',
+          }} />
       </Stack.Navigator>
     </NavigationContainer>
   }
