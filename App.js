@@ -1,20 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Home from './screens/home';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ReviewDetails from './screens/reviewDetails';
-
-
-const getFonts = () => Font.loadAsync({
-  'nunito-regular': require('./assets/fonts/Nunito-Regular.ttf'),
-  'nunito-bold': require('./assets/fonts/Nunito-Bold.ttf'),
-});
+import Navigator from './routes/drawer';
 
 export default function App() {
   const [fontsLoaded, setFontsLoaded] = useState(false);
-  const Stack = createNativeStackNavigator();
 
   useEffect(() => {
     (async () => {
@@ -36,26 +26,7 @@ export default function App() {
 
   if (fontsLoaded) {
     SplashScreen.hideAsync();
-    return <NavigationContainer>
-      <Stack.Navigator screenOptions={{
-        headerTintColor: '#444',
-        headerStyle: {
-          backgroundColor: '#eee',
-        },
-        height: 60,
-      }}>
-        <Stack.Screen name='Home' component={Home} options={{
-          title: 'GameZone',
-          // headerStyle: {
-          //   backgroundColor: '#eee',
-          // },
-        }} />
-        <Stack.Screen name='ReviewDetails' component={ReviewDetails}
-          options={{
-            title: 'Review Details',
-          }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    return <Navigator />
   }
   else {
     return null;
