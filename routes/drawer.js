@@ -3,7 +3,6 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeStack from './homeStack';
 import AboutStack from './aboutStack';
-import ReviewDetails from "../screens/reviewDetails";
 
 const Drawer = createDrawerNavigator();
 

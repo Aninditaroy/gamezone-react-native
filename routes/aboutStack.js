@@ -11,11 +11,11 @@ export default function AboutStack() {
       headerStyle: {
         backgroundColor: '#eee',
         height: 60,
-      },
+      }
     }}>
       <Stack.Screen name='About' component={About}
         options={({ navigation }) => ({
-          headerTitle: () => <Header navigation={navigation} title='About GameZone' />
+          header: () => <Header navigation={navigation} title='About GameZone' />
         })} />
     </Stack.Navigator>
   )

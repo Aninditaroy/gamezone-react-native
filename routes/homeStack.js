@@ -12,12 +12,11 @@ export default function HomeStack() {
       headerStyle: {
         backgroundColor: '#eee',
         height: 60,
-      },
-
+      }
     }}>
       <Stack.Screen name='Home' component={Home}
         options={({ navigation }) => ({
-          headerTitle: () => <Header navigation={navigation}
+          header: () => <Header navigation={navigation}
             title='GameZone' />
         })}
 
